@@ -1,8 +1,11 @@
-name: Deploy Management Groups
-
+name: Deploy ACR
 on:
   # push:
   #   branches:
   #     - main
 
   workflow_dispatch:
+env:
+  AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
