@@ -21,18 +21,10 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CLIENT_SECRET }}
-          
-      - name: Validate Deployment with What-If
-        run: |
-          az deployment group what-if \
-            --resource-group Prx-RG \
-            --template-file ./bicep/network/main.bicep \
-            --parameters @./bicep/network/parameters/network.parameters.json
 
       - name: Deploy Bicep Template
         run: |
           az deployment group create \
-            --resource-group Prx-RG \
-            --template-file ./bicep/network/main.bicep \
-            --parameters @./bicep/network/parameters/network.parameters.json
+            --resource-group Proximus_PlayGround \
+            --template-file ./defaultacr.bicep
       
