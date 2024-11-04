@@ -23,6 +23,7 @@ jobs:
         with:
           auth-type: IDENTITY
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          allow-no-subscriptions: true
 
       - name: Deploy Bicep Template
         run: |
