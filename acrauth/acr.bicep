@@ -4,8 +4,6 @@ param  userNameSecretURI string
 
 param pwdSecretURI string
 
-param resourceLocation string
-
 param name string = 'proximus'
 
 module registry 'br/public:avm/res/container-registry/registry:0.6.0' = {
@@ -40,6 +38,5 @@ module registry 'br/public:avm/res/container-registry/registry:0.6.0' = {
         name: 'default'
       }
     ]
-    location: resourceLocation
   }
 }
