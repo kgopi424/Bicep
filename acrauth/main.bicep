@@ -12,7 +12,7 @@ metadata description = 'This instance deploys the module with a credential set a
 param resourceGroupName string = 'Proximus_PlayGround'
 
 @description('Optional. The location to deploy resources to.')
-param resourceLocation string = 'east us'
+param location string = 'east us'
 
 @description('Optional. A short identifier for the kind of deployment. Should be kept short to not run into resource-name length-constraints.')
 param serviceShort string = 'prox'
@@ -30,10 +30,10 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' existing 
 
 module nestedDependencies 'dependencies.bicep' = {
   scope: resourceGroup
-  name: '${uniqueString(deployment().name, resourceLocation)}-nestedDependencies'
+  name: '${uniqueString(deployment().name, location)}-nestedDependencies'
   params: {
     // Adding base time to make the name unique as purge protection must be enabled (but may not be longer than 24 characters total)
-    location: resourceLocation
+    location: location
     keyVaultName: 'dep-${namePrefix}-kv-${serviceShort}'
     acrName: '${namePrefix}${serviceShort}001'
   }
@@ -41,12 +41,12 @@ module nestedDependencies 'dependencies.bicep' = {
 
 module acr 'acr.bicep' = {
   scope: resourceGroup
-  name: '${uniqueString(deployment().name, resourceLocation)}-nestedDependencies'
+  name: '${uniqueString(deployment().name, location)}-nestedDependencies'
   params: {
     // Adding base time to make the name unique as purge protection must be enabled (but may not be longer than 24 characters total)
     credentialSetResourceId : nestedDependencies.outputs.acrCredentialSetResourceId
     userNameSecretURI : nestedDependencies.outputs.userNameSecretURI
     pwdSecretURI : nestedDependencies.outputs.pwdSecretURI
-    location: resourceLocation
+    location: location
   }
 }
