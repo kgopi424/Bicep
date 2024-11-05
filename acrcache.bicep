@@ -29,8 +29,7 @@ module registry 'br/public:avm/res/container-registry/registry:0.6.0' = {
     acrSku: 'Standard'
     cacheRules: [
       {
-        name: acr.cacherule.name
-        credentialSetResourceId: [] 
+        name: acr.cacherule.name 
         sourceRepository: 'mcr.microsoft.com/bicep/avm/*'
         targetRepository: 'avm/*'
       }
