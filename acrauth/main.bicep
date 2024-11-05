@@ -12,7 +12,7 @@ metadata description = 'This instance deploys the module with a credential set a
 param resourceGroupName string = 'Proximus_PlayGround'
 
 @description('Optional. The location to deploy resources to.')
-param resourceLocation string = deployment().location
+param resourceLocation string = 'east us'
 
 @description('Optional. A short identifier for the kind of deployment. Should be kept short to not run into resource-name length-constraints.')
 param serviceShort string = 'prox'
