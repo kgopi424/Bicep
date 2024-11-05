@@ -48,6 +48,5 @@ module acr 'acr.bicep' = {
     credentialSetResourceId : nestedDependencies.outputs.acrCredentialSetResourceId
     userNameSecretURI : nestedDependencies.outputs.userNameSecretURI
     pwdSecretURI : nestedDependencies.outputs.pwdSecretURI
-    location: resourceLocation
   }
 }
