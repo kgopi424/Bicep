@@ -9,7 +9,7 @@ metadata description = 'This instance deploys the module with a credential set a
 
 @description('Optional. The name of the resource group to deploy for testing purposes.')
 @maxLength(90)
-param resourceGroupName string = 'dep-${namePrefix}-containerregistry.registries-${serviceShort}-rg'
+param resourceGroupName string = 'Proximus_PlayGround'
 
 @description('Optional. The location to deploy resources to.')
 param resourceLocation string = deployment().location
@@ -24,9 +24,8 @@ param namePrefix string = 'test'
 // Dependencies //
 // ============ //
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
   name: resourceGroupName
-  location: resourceLocation
 }
 
 module nestedDependencies 'dependencies.bicep' = {
