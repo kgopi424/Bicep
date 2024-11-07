@@ -27,5 +27,5 @@ jobs:
         run: |
           az deployment group create \
             --resource-group Proximus_PlayGround \
-            --template-file ./acrauth/main.bicep
+            --template-file ./acr/main.bicep
       
