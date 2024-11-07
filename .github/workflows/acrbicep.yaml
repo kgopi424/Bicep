@@ -25,6 +25,6 @@ jobs:
 
       - name: Deploy Bicep Template
         run: |
-          az deployment group create \
+          az deployment create \
             --template-file ./acr/main.bicep
       
