@@ -25,6 +25,7 @@ jobs:
 
       - name: Deploy Bicep Template
         run: |
-          az deployment create \
+          az deployment ac \
+            ----location WestUS \
             --template-file ./acr/main.bicep
       
