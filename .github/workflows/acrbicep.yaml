@@ -26,6 +26,5 @@ jobs:
       - name: Deploy Bicep Template
         run: |
           az deployment group create \
-            --resource-group Proximus_PlayGround \
             --template-file ./acr/main.bicep
       
